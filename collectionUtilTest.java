@@ -4,13 +4,13 @@ import java.util.*;
 
 
 class add2 implements ListMapper<Integer>{
-	public Integer mapFuncRef(Integer ele , int index , List<Integer> list){
+	public Integer mapFuncRef(Integer ele){
 		return ele+2;
 	}
 }
 
 class greaterThan5 implements ListFilter<Integer>{
-	public Boolean filterFuncRef(Integer ele , int index , List<Integer> list){
+	public Boolean filterFuncRef(Integer ele){
 		return ele>5;
 	}
 }

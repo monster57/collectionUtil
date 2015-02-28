@@ -3,18 +3,18 @@ import java.util.*;
 
 
 interface ListMapper<E>{
-	 E mapFuncRef(E ele , int index , List<E> list);
+	 E mapFuncRef(E ele );
 	
 }
 interface ListFilter<E>{
-	 Boolean filterFuncRef(E ele , int index , List<E> list);
+	 Boolean filterFuncRef(E ele);
 }
 public class CollectionUtil<E>{
 	public static<E> List<E> map(List <E>list , ListMapper funcRef ){
 		List <E> result = new <E>ArrayList();
 		int index = 0;
 		for(E ele : list){
-			E new_ele =(E)funcRef.mapFuncRef(ele , index++ , list );
+			E new_ele =(E)funcRef.mapFuncRef(ele);
 			result.add(new_ele);
 		}
 		return result;
@@ -23,9 +23,9 @@ public class CollectionUtil<E>{
 		List <E> result = new <E>ArrayList();
 		int index = 0;
 		for(E ele:list){
-			Boolean new_ele = (Boolean)funcRef.filterFuncRef(ele , index++ , list);
+			Boolean new_ele = (Boolean)funcRef.filterFuncRef(ele);
 			if(new_ele){
-				result.add(list.get(index-1));
+				result.add(ele);
 			}
 		}
 		return result;
