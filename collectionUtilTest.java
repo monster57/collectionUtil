@@ -14,6 +14,12 @@ class greaterThan5 implements ListFilter<Integer>{
 		return ele>5;
 	}
 }
+
+class addArray implements ListReducer<Integer , Integer>{
+	public Integer ReduceFuncRef(Integer ele , Integer initial){
+		return initial+ele;
+	}
+}
 public class CollectionUtilTest{
 	@Test
 	public void map_returns_a_arraylist_of_element_increament_by_two(){
@@ -40,5 +46,17 @@ public class CollectionUtilTest{
 		assertEquals(result.get(0),(Integer)6);
 		assertEquals(result.get(1),(Integer)7);
 
+	}
+	@Test
+	public void reduce_returns_a_value_of_that_the_result_of_the_array_addition(){
+		ListReducer listReducer = new addArray();
+		List <Integer> list = new ArrayList<Integer>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		Integer initial = 0;
+		Integer result = CollectionUtil.reduce(list , listReducer , initial);
+
+		assertEquals(result , (Integer)6 );
 	}	
 }
