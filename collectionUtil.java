@@ -2,19 +2,19 @@ import java.io.*;
 import java.util.*;
 
 
-interface ListMapper<E>{
-	 E mapFuncRef(E ele );
+interface ListMapper<E,K>{
+	 K mapFuncRef(E ele );
 	
 }
 interface ListFilter<E>{
 	 Boolean filterFuncRef(E ele);
 }
 public class CollectionUtil<E>{
-	public static<E> List<E> map(List <E>list , ListMapper funcRef ){
-		List <E> result = new <E>ArrayList();
+	public static<E,K> List<K> map(List <E>list , ListMapper funcRef ){
+		List <K> result = new <K>ArrayList();
 		int index = 0;
 		for(E ele : list){
-			E new_ele =(E)funcRef.mapFuncRef(ele);
+			K new_ele =(K)funcRef.mapFuncRef(ele);
 			result.add(new_ele);
 		}
 		return result;

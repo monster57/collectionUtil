@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 import java.util.*;
 
 
-class add2 implements ListMapper<Integer>{
+class add2 implements ListMapper<Integer , Integer>{
 	public Integer mapFuncRef(Integer ele){
 		return ele+2;
 	}
